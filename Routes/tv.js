@@ -58,7 +58,7 @@ router.post("/tv/:ip", async (req, res) => {
   const ip = req.params.ip;
   const tv = new Bravia(ip, "80", "0000");
   const command = req.body.command;
-  return res.json(await tv.sendIRCC(command));
+  return res.json(await tv.send(command));
 });
 
 module.exports = router;
