@@ -22,4 +22,21 @@ router.get("/tv", async (req, res) => {
   return res.json(tvs);
 });
 
+/**
+ * @swagger
+ * /tv/{ip}:
+ *  get:
+ *    description: Get TV by ip
+ *    tags: [TV]
+ *    parameters:
+ *      - name: ip
+ *        in: path
+ *        description: TV ip
+ *        required: true
+ */
+router.get("/tv/:ip", async (req, res) => {
+  const ip = req.params.ip;
+  const tv = new Bravia(ip, "80", "0000");
+  return res.json(await tv.getIRCCCodes());
+});
 module.exports = router;
