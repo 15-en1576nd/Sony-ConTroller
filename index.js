@@ -2,6 +2,23 @@ const express = require('express');
 const app = express();
 const path = require("path");
 const port = 3000;
+const swaggerJsDoc = require('swagger-jsdoc');
+const swaggerUI = require('swagger-ui-express');
+
+const swaggerOptions = {
+	swaggerDefinition: {
+		info: {
+			title: 'Sony ConTroller - API',
+			description: 'API for sony TV\'s'
+		},
+		servers: ['http://localhost:3000']
+	},
+	apis: [__dirname + '/Routes/*.js']
+};
+
+const swaggerDocs = swaggerJsDoc(swaggerOptions);
+app.use('/', swaggerUI.serve, swaggerUI.setup(swaggerDocs));
+
 
 app.set("view engine", "ejs");
 app.set("views", path.join(__dirname + "/views"));
