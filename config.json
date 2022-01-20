@@ -1,0 +1,6 @@
+{
+    "port": 80,
+    "xmppPort": 443,
+    "db": "",
+    "apiAdmin": ""
+} 
