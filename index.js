@@ -19,6 +19,9 @@ const swaggerOptions = {
 const swaggerDocs = swaggerJsDoc(swaggerOptions);
 app.use("/docs", swaggerUI.serve, swaggerUI.setup(swaggerDocs));
 
+app.use(express.json());
+app.use(express.urlencoded({ extended: false }));
+
 app.use(require("./Routes/hello"));
 app.use(require("./Routes/tv"));
 
