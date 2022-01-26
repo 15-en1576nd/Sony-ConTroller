@@ -48,7 +48,7 @@ router.get("/tv", async (req, res) => {
  *        description: IRCC command
  *        required: true
  *        type: string
- *        default: "{\"key\":\"WakeUp\"}"
+ *        default: "{\"command\":\"WakeUp\"}"
  */
 router.get("/tv/:ip", async (req, res) => {
   const ip = req.params.ip;
